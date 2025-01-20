@@ -33,11 +33,11 @@ int login() {
     printf("\n\n\n");
     printf("                               ====== Bank Management System ==========            ");
     int username = 0;
-    printf("\n\n\nEnter your username: ");
+    printf("\n\n\nEnter your username(123): ");
     scanf("%d", &username);
 
     int password = 0;
-    printf("Enter your password: ");
+    printf("Enter your password(123): ");
     scanf("%d", &password);
 
     if (username == 123 && password == 123) {
@@ -115,6 +115,14 @@ void mainFeatures() {
         Withdraw();
     } else if (choice == 1) {
         Deposit();
+    }else if(choice == 4){
+        printf("thank you for using our bank! ");
+    }else if((choice >= 'a' && choice <= 'z') || (choice >= 'A' && choice <= 'Z')){
+        printf("enter valid key");
+        mainFeatures();
+    }else{
+        printf("enter valid key");
+        mainFeatures();
     }
 }
 
@@ -191,6 +199,7 @@ void Deposit() {
 void AskingDetailForCreateAccount() {
     printf("                      ============================ Account Creation ============================  \n\n");
     char choice[5];
+    char mainChoice[5];
     printf("\nYour CNIC: ");
     scanf("%ld", &newUser.cnic);
 
@@ -213,7 +222,14 @@ void AskingDetailForCreateAccount() {
         scanf("%d", &newUser.balanace);
 
         currentUser = &newUser; 
-        mainFeatures();
+        printf("do you want to continue (yes/no) : ");
+        scanf("%s",mainChoice);
+        if (strcmp(mainChoice, "yes") == 0)
+        {
+            mainFeatures();
+        }else{
+            printf("thank you!😊");
+        }
     }
 }
 
