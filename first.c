@@ -20,6 +20,7 @@ void AccountDetail();
 void Withdraw();
 void Deposit();
 void AskingDetailForCreateAccount();
+void moneyTransfer();
 
 // LOGIN PAGE
 int login() {
@@ -106,7 +107,8 @@ void mainFeatures() {
     printf("-> 1) Deposit Money\n");
     printf("-> 2) Withdraw Money\n");
     printf("-> 3) Account Details\n");
-    printf("-> 4) Exit\n");
+    printf("-> 4) money transfer\n");
+    printf("-> 5) Exit\n");
     scanf("%d", &choice);
 
     if (choice == 3) {
@@ -115,11 +117,12 @@ void mainFeatures() {
         Withdraw();
     } else if (choice == 1) {
         Deposit();
-    }else if(choice == 4){
+    }else if(choice == 5){
         printf("thank you for using our bank! ");
-    }else if((choice >= 'a' && choice <= 'z') || (choice >= 'A' && choice <= 'Z')){
-        printf("enter valid key");
-        mainFeatures();
+    }else if(choice == 4 ){        
+        moneyTransfer();
+        // printf("thank you for using our bank! ");
+
     }else{
         printf("enter valid key");
         mainFeatures();
@@ -192,6 +195,39 @@ void Deposit() {
         mainFeatures();
     } else {
         printf("Thank you!!❤️");
+    }
+}
+
+void moneyTransfer(){
+    long cnic;
+    int money;
+    char choice[5];
+    printf("tell account cnic in which you want to transfer : ");
+    scanf("%ld",&cnic);
+
+    if (currentUser->cnic == p1.cnic){
+        printf("try again!");
+        mainFeatures();
+    }else
+    {
+        if (cnic == p1.cnic)
+        {
+            printf("how much do you wish to transfer : ");
+            scanf("%d",&money);
+            p1.balanace += money;
+            currentUser->balanace-=money;
+            printf("now your balance is %d",currentUser->balanace);
+
+            printf("\n\ndo you wish to continue...(yes/no)");
+            scanf("%s",choice);
+
+            if (strcmp(choice,"yes")==0)
+            {
+                mainFeatures();
+            }else{
+                printf("thannk you!! ❤️");
+            }
+        }
     }
 }
 
