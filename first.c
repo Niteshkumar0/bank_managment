@@ -208,6 +208,9 @@ void moneyTransfer(){
     if (currentUser->cnic == p1.cnic){
         printf("try again!");
         mainFeatures();
+    }else if(currentUser->cnic == cnic){
+        printf("try again!");
+        mainFeatures();
     }else
     {
         if (cnic == p1.cnic)
