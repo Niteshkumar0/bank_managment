@@ -121,7 +121,6 @@ void mainFeatures() {
         printf("thank you for using our bank! ");
     }else if(choice == 4 ){        
         moneyTransfer();
-        // printf("thank you for using our bank! ");
 
     }else{
         printf("enter valid key");
@@ -144,6 +143,7 @@ void AccountDetail() {
     if (strcmp(choice, "yes") == 0) {
         mainFeatures();
     } else {
+        // Feedback();
         printf("Thank you!!❤️");
     }
 }
@@ -271,6 +271,7 @@ void AskingDetailForCreateAccount() {
         }
     }
 }
+
 
 int main() {
     int loginResult = login();
